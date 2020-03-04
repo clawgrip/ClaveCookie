@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.http;
+package es.inap.org.apache.tomcat.util.http;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -27,6 +27,10 @@ import javax.servlet.http.Cookie;
 
 import org.apache.tomcat.util.buf.ByteChunk;
 import org.apache.tomcat.util.buf.MessageBytes;
+import org.apache.tomcat.util.http.CookieProcessorBase;
+import org.apache.tomcat.util.http.MimeHeaders;
+import org.apache.tomcat.util.http.ServerCookie;
+import org.apache.tomcat.util.http.ServerCookies;
 import org.apache.tomcat.util.res.StringManager;
 
 /**
@@ -329,7 +333,7 @@ public final class CustomCookieProcessor extends CookieProcessorBase {
 
         if (isSessionCookie) {
 	        buf.append("; SameSite=");
-	        buf.append(SameSiteCookies.NONE);
+	        buf.append(CustomSameSiteCookies.NONE);
 	        log.info("Establecido SameSite=none en la cookie de sesion");
         }
 

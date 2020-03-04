@@ -14,11 +14,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.http;
+package es.inap.org.apache.tomcat.util.http;
 
 import org.apache.tomcat.util.res.StringManager;
 
-public enum SameSiteCookies {
+public enum CustomSameSiteCookies {
 
     /**
      * Don't set the SameSite cookie attribute.
@@ -40,11 +40,11 @@ public enum SameSiteCookies {
      */
     STRICT("Strict");
 
-    private static final StringManager sm = StringManager.getManager(SameSiteCookies.class);
+    private static final StringManager sm = StringManager.getManager(CustomSameSiteCookies.class);
 
     private final String value;
 
-    SameSiteCookies(String value) {
+    CustomSameSiteCookies(String value) {
         this.value = value;
     }
 
@@ -52,8 +52,8 @@ public enum SameSiteCookies {
         return value;
     }
 
-    public static SameSiteCookies fromString(String value) {
-        for (SameSiteCookies sameSiteCookies : SameSiteCookies.values()) {
+    public static CustomSameSiteCookies fromString(String value) {
+        for (CustomSameSiteCookies sameSiteCookies : CustomSameSiteCookies.values()) {
             if (sameSiteCookies.getValue().equalsIgnoreCase(value)) {
                 return sameSiteCookies;
             }
